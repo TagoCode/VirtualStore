@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <style>
+
+        *{
+            width: auto;
+            height: auto;
+        }
+        #headline {
+            font-weight: bold;
+            width: 50%;
+            display: inline-block;
+            vertical-align: ;
+        }
+
+            #headline img{
+                margin-left: 150px;
+                vertical-align: middle;
+            }
+
+        h3 {
+            width: 20%;
+            display: inline-block;
+        }
+
+        a {
+            width: 10%;
+            display: inline-block;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #navbar {
+            background-color: aquamarine;
+            width: 100%;
+            height: 40px;
+        }
+
+        #navbar a {
+            width: 12%;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #item_display {
+            width: 100%;
+            border: black dotted 1px;
+        }
+
+            #large_img {
+                width: 62%;  
+                display: inline-block;
+                vertical-align: top;
+            }
+                #large_img img{
+                    width: 600px;
+                    height: 300px;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-left: 40px;
+                    margin-top: 40px;
+                }
+
+            #small_img{
+                width: 35%;
+                display: inline-block;
+                margin-left: 20px;
+            }
+            
+                #small_img img{
+                    width: 35%;
+                    display: inline-block;
+                    margin-left: 30px;
+                    vertical-align: top;
+                    margin-top: 30px;
+                }
+
+        #about_us {
+            width: 45%;
+            display: inline-block;
+        }
+
+        #about_us a {
+            width: 15%;
+            display: inline-block;
+        }
+
+        #social_media {
+            width: 100%;
+            display: inline-block;
+        }
+
+        #about {
+            width: 48%;
+            display: inline-block;
+        }
+
+        #follow {
+            width: 48%;
+            display: inline-block;
+        }
+
+        background {
+            background-image: url('{% static "img/tv.jpg"')
+        }
+    </style>
+</head>
+
+<body>
+    {% load i18n %}
+
+
+<form action="{% url 'set_language' %}" method="post">
+    {% csrf_token %}
+    <input name="next" type="hidden" value="{{ redirect_to }}" />
+    <select name="language">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        {% for lang in LANGUAGES %}
+            <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                {{ lang.1 }} ({{ lang.0 }})
+            </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Go" />
+</form>
+
+    <div id="headline">
+        <h3>Welcome, {{logged_in_user.first_name}}!</h3> 
+        <select name="status">
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+            <option value="klingon">Klingon</option>
+        </select>
+        <img src='{% static "img/name.png" %}'>
+        <!-- <marquee>Television media, accessories and peripherals!</marquee> -->
+    </div>
+
+    <div id="navbar">
+        <a class="active" href="/success">Home</a>
+        <a href="/electronics">Shop</a>
+        <a href="/account_information">My Account</a> 
+        <a href="/login">Log In</a> 
+        <a href="/log_out">Log Out</a> 
+        <a href="/">Create Account</a>
+        <a href="/main_cart">Cart</a>
+    </div>
+
+    <div id="item_display">
+        <div id="large_img">
+            <img src='{% static "img/tv1.jpg" %}'>
+        </div>
+        <div id="small_img">
+            <img src='{% static "img/Star_Wars_Trilogy.jpg" %}'>
+            <img src='{% static "img/Oculus.jpg" %}' >
+            <img src='{% static "img/office.jpg" %}'>
+            <img src='{% static "img/xbox.jpg" %}'>
+        </div>
+    </div>
+
+    <div id="social_media">
+        <div id="about">
+        <ul>
+            <a href="/about_us">About Us</a>
+            <a href="/contact_us">Contact</a>
+            <a href="/help">Help</a>
+            <a href="/faq">FAQ</a>
+        </ul>
+        </div>
+
+        <div id="follow">
+    </div>
+    <hr>
+    <footer>
+        <h6>Copyright 2020. Game Store. All rights reserved.</h6>
+    </footer>
+</body>
+
+</html>

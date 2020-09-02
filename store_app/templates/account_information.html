@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- {% load static %} -->
+    <style>
+        * {
+            height: auto;
+        }
+
+        #headline {
+            width: 30%;
+            display: inline-block;
+        }
+
+        #headline h4 {
+            width: 30%;
+            display: inline-block;
+        }
+
+        #headline a {
+            width: 30%;
+            display: inline-block;
+        }
+
+        #user_options {
+            width: 68%;
+            display: inline-block;
+            text-align: right;
+        }
+
+        #user_options a {
+            width: 14%;
+            display: inline-block;
+        }
+
+        #navbar {
+            background-color: aquamarine;
+            width: 100%;
+            height: 40px;
+        }
+
+        #navbar a {
+            width: 15%;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        h3 {
+            width: 100%;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 200px;
+        }
+
+        #main_content{
+            width: 100%;
+        }
+
+            #menu{
+                margin-top: 20px;
+                width:20%;
+                display: inline-block;
+                border: solid black 2px;
+                text-align: left;
+            }
+
+            #account_info{
+                margin-top: 20px;
+                vertical-align: top;
+                width: 60%;
+                display: inline-block;
+                border: solid black 2px;
+                text-align: center;
+            }
+
+        #about_us {
+            width: 48%;
+            display: inline-block;
+        }
+
+        #about_us a {
+            width: 15%;
+            display: inline-block;
+        }
+
+        #social_media {
+            width: 50%;
+            display: inline-block;
+        }
+
+        #social_media li {
+            width: 15%;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="headline">
+        <h4>Welcome, User!</h4>
+        <!-- {{logged_in_user.first_name}} -->
+        <select name="status">
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+            <option value="klingon">Klingon</option>
+        </select>
+    </div>
+
+    <div id="user_options">
+        <a href="/account_information">My Account</a> 
+        <a href="/login">Log In</a> 
+        <a href="/log_out">Log Out</a> 
+        <a href="/">Create Account</a>
+        <a href="/cart">Cart</a>
+         <hr>
+    </div>
+
+    <div id="navbar">
+        <a class="active" href="/success">Home</a>
+        <a href="/electronics">Electronics</a>
+        <a href="/action">Action</a>
+        <a href="/comedy">Comedy</a>
+        <a href="/drama">Drama</a>
+        <a href="/scifi">SciFi</a>
+    </div>
+
+    <div id="main_content">
+        <div id="menu">
+            <ul>
+                <a href="/my_orders">My Orders</a><br>
+                <a href="/account_info">Account Information</a><br>
+            </ul>
+        </div>
+        <div id="account_info">
+            <h3>Account Information</h3>
+            <form action="/account_information" method="POST">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name"><br>
+
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name"><br>
+
+                <label for="email_address">Email</label>
+                <input type="text" name="email_address"><br>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div id="about_us">
+        <ul>
+            <a href="/about_us">About Us</a>
+            <a href="/contact_us">Contact Us</a>
+            <a href="/help">Help</a>
+            <a href="/faq">FAQ</a>
+        </ul>
+    </div>
+
+    <div id="social_media">
+        <ul>
+            <li>Follow Us:</li>
+            <li>Twitter</li>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>Google+</li>
+            <li>Pinterest</li>
+        </ul>
+    </div>
+
+    <hr>
+    <footer>
+        <h6>Copyright 2020. Game Store. All rights reserved.</h6>
+    </footer>
+</body>
+
+</html>
